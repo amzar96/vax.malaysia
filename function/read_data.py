@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+pd.options.mode.chained_assignment = None
 
 
 @st.cache

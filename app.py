@@ -4,7 +4,6 @@ from datetime import datetime, timedelta
 from function.graph import getDailyVaxMalaysia
 
 datenow = datetime.now()
-defaultvalue = datetime.now() - timedelta(weeks=4)
 
 st.set_page_config(
     page_title="#VaksinMalaysia",
@@ -21,8 +20,13 @@ st.markdown(
 st.markdown("""---""")
 st.title("Daily Dose")
 
-my_expander = st.beta_expander(label='Filter')
+today = datetime.today().strftime('%Y-%m-%d')
+default_value=1
+defaultvalue = datetime.now() - timedelta(weeks=int(default_value))
+
+my_expander = st.expander(label=f'Default filter show data for the latest {default_value} week')
 with my_expander:
+
     start_time = st.slider(
         "",
         min_value=datetime(2021, 2, 24),
@@ -32,7 +36,8 @@ with my_expander:
     )
 
     st.markdown(
-        ":calendar: you have choose data from **{}**".format(str(start_time).split(" ")[0])
+        ":calendar: you have choose data from **{}** until **{}**".format(str(start_time).split(" ")[0], today)
     )
+
 getDailyVaxMalaysia(start_time)
 st.markdown("""---""")
