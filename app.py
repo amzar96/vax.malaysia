@@ -10,7 +10,7 @@ datenow = datetime.now()
 
 
 st.set_page_config(
-    page_title="COVID-19 Vaccine Malaysia",
+    page_title="COVID-19 Vaccine Malaysia!",
     layout="wide",
     page_icon=":chart_with_upwards_trend:",
     initial_sidebar_state="expanded",
